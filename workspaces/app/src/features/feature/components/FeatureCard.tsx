@@ -55,10 +55,12 @@ const FeatureCard: React.FC<Props> = ({ bookId }) => {
 
   return (
     <_Wrapper href={`/books/${bookId}`}>
-      {imageUrl != null && (
+      {imageUrl != null ? (
         <_ImgWrapper>
           <Image alt={book.image.alt} height={96} objectFit="cover" src={imageUrl} width={96} />
         </_ImgWrapper>
+      ) : (
+        <_ImgWrapper></_ImgWrapper>
       )}
 
       <_ContentWrapper>
@@ -70,10 +72,12 @@ const FeatureCard: React.FC<Props> = ({ bookId }) => {
         </Text>
 
         <Flex align="center" gap={Space * 1} justify="flex-end">
-          {authorImageUrl != null && (
+          {authorImageUrl != null ? (
             <_AvatarWrapper>
               <Image alt={book.author.name} height={32} objectFit="cover" src={authorImageUrl} width={32} />
             </_AvatarWrapper>
+          ) : (
+            <_AvatarWrapper></_AvatarWrapper>
           )}
           <Text color={Color.MONO_100} typography={Typography.NORMAL14}>
             {book.author.name}
