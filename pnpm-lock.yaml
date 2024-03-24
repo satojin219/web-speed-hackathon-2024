@@ -172,9 +172,6 @@ importers:
         specifier: 3.22.4
         version: 3.22.4
     devDependencies:
-      '@types/jquery':
-        specifier: 3.5.29
-        version: 3.5.29
       '@types/lodash':
         specifier: 4.14.202
         version: 4.14.202
@@ -233,9 +230,6 @@ importers:
       '@types/jimp':
         specifier: 0.2.28
         version: 0.2.28
-      '@types/jquery':
-        specifier: 3.5.29
-        version: 3.5.29
       '@types/path-browserify':
         specifier: 1.0.2
         version: 1.0.2
@@ -3644,12 +3638,6 @@ packages:
       - encoding
     dev: true
 
-  /@types/jquery@3.5.29:
-    resolution: {integrity: sha512-oXQQC9X9MOPRrMhPHHOsXqeQDnWeCDT3PelUIg/Oy8FAbzSZtFHRjc7IpbfFVmpLtJ+UOoywpRsuO5Jxjybyeg==}
-    dependencies:
-      '@types/sizzle': 2.3.8
-    dev: true
-
   /@types/js-cookie@2.2.7:
     resolution: {integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==}
     dev: false
@@ -3753,10 +3741,6 @@ packages:
 
   /@types/serviceworker@0.0.83:
     resolution: {integrity: sha512-EwzwfDMIWyo0ulkbLm4KrnnHBSJ9PmnPQCk1nM3tmTMl9lTJsldx9ZGPq4J1ZD2yroMQ8vzUf7FNlWgvfpN/jw==}
-    dev: true
-
-  /@types/sizzle@2.3.8:
-    resolution: {integrity: sha512-0vWLNK2D5MT9dg0iOo8GlKguPAU02QjmZitPEsXRuJXU/OGIOt9vT9Fc26wtYuavLxtO45v9PGleoL9Z0k1LHg==}
     dev: true
 
   /@types/stats.js@0.17.3:
