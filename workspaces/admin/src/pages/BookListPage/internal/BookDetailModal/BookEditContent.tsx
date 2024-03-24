@@ -67,7 +67,7 @@ export const BookEditContent: React.FC<BookEditContentProps> = ({ book, onEditCo
       nameRuby: yup
         .string()
         .required('作品名のふりがなを入力してください')
-        .matches(/^[\p{Script_Extensions=Hiragana}]+$/u, '作品名のふりがなはひらがなで入力してください'),
+        .matches(/^[\u3040-\u309F]+$/, '作品名のふりがなはひらがなで入力してください'),
     }),
   });
 
