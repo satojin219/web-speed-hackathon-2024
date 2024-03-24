@@ -1,5 +1,5 @@
 import { useSetAtom } from 'jotai';
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
 import styled from 'styled-components';
 
 import { DialogContentAtom } from '../atoms/DialogContentAtom';
@@ -14,6 +14,7 @@ import { Box } from './Box';
 import { Button } from './Button';
 import { Flex } from './Flex';
 import { Spacer } from './Spacer';
+import { TermModal } from './TermModal';
 import { Text } from './Text';
 
 const _Button = styled(Button)`
@@ -26,7 +27,7 @@ const _Content = styled.section`
 
 export const Footer: React.FC = () => {
   const [isClient, setIsClient] = React.useState(false);
-
+  const [isOpen, setIsOpen] = useState(false);
   React.useEffect(() => {
     setIsClient(true);
   }, []);
@@ -38,20 +39,6 @@ export const Footer: React.FC = () => {
   const overviewDialogA11yId = useId();
 
   const updateDialogContent = useSetAtom(DialogContentAtom);
-
-  const handleRequestToTermDialogOpen = () => {
-    updateDialogContent(
-      <_Content aria-labelledby={termDialogA11yId} role="dialog">
-        <Text as="h2" color={Color.MONO_100} id={termDialogA11yId} typography={Typography.NORMAL16}>
-          利用規約
-        </Text>
-        <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} typography={Typography.NORMAL12}>
-          {TERM}
-        </Text>
-      </_Content>,
-    );
-  };
 
   const handleRequestToContactDialogOpen = () => {
     updateDialogContent(
@@ -114,7 +101,7 @@ export const Footer: React.FC = () => {
       <Flex align="flex-start" direction="column" gap={Space * 1} justify="flex-start">
         <img alt="Cyber TOON" decoding="async" loading="lazy" src="/assets/cyber-toon.svg" />
         <Flex align="start" direction="row" gap={Space * 1.5} justify="center">
-          <_Button disabled={!isClient} onClick={handleRequestToTermDialogOpen}>
+          <_Button disabled={!isClient} onClick={() => setIsOpen(true)}>
             利用規約
           </_Button>
           <_Button disabled={!isClient} onClick={handleRequestToContactDialogOpen}>
@@ -131,6 +118,17 @@ export const Footer: React.FC = () => {
           </_Button>
         </Flex>
       </Flex>
+      <TermModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <_Content aria-labelledby={termDialogA11yId} role="dialog">
+          <Text as="h2" color={Color.MONO_100} id={termDialogA11yId} typography={Typography.NORMAL16}>
+            利用規約
+          </Text>
+          <Spacer height={Space * 1} />
+          <Text as="p" color={Color.MONO_100} typography={Typography.NORMAL12}>
+            {TERM}
+          </Text>
+        </_Content>
+      </TermModal>
     </Box>
   );
 };
