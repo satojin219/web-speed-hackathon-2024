@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { styled } from 'styled-components';
 
@@ -8,11 +8,12 @@ import { Text } from './foundation/components/Text';
 import { ActionLayout } from './foundation/layouts/ActionLayout';
 import { CommonLayout } from './foundation/layouts/CommonLayout';
 import { Color, Space, Typography } from './foundation/styles/variables';
-import { AuthorDetailPage } from './pages/AuthorDetailPage';
-import { BookDetailPage } from './pages/BookDetailPage';
-import { EpisodeDetailPage } from './pages/EpisodeDetailPage';
-import { SearchPage } from './pages/SearchPage';
-import { TopPage } from './pages/TopPage';
+
+const AuthorDetailPage = lazy(() => import('./pages/AuthorDetailPage/index'));
+const BookDetailPage = lazy(() => import('./pages/BookDetailPage/index'));
+const EpisodeDetailPage = lazy(() => import('./pages/EpisodeDetailPage/index'));
+const SearchPage = lazy(() => import('./pages/SearchPage/index'));
+const TopPage = lazy(() => import('./pages/TopPage/index'));
 
 const _BackToTopButton = styled(Link)`
   display: flex;
@@ -33,7 +34,7 @@ export const Router: React.FC = () => {
         element={
           <ActionLayout
             leftContent={
-              <_BackToTopButton href={'/'}>
+              <_BackToTopButton to={'/'}>
                 <SvgIcon color={Color.MONO_100} height={32} type="ArrowBack" width={32} />
                 <Text color={Color.MONO_100} typography={Typography.NORMAL16} weight="bold">
                   トップへ戻る
