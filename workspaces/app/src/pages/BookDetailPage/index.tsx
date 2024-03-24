@@ -133,4 +133,4 @@ const BookDetailPageWithSuspense: React.FC = () => {
   );
 };
 
-export default BookDetailPageWithSuspense;
+export { BookDetailPageWithSuspense as BookDetailPage };

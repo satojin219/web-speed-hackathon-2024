@@ -94,4 +94,4 @@ const AuthorDetailPageWithSuspense: React.FC = () => {
   );
 };
 
-export default AuthorDetailPageWithSuspense;
+export { AuthorDetailPageWithSuspense as AuthorDetailPage };
