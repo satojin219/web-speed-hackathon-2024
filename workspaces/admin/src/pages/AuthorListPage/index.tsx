@@ -61,7 +61,7 @@ type AuthorModalAction = {
   openDetail: (authorId: string) => void;
 };
 
-export const AuthorListPage: React.FC = () => {
+const AuthorListPage: React.FC = () => {
   const { data: authorList = [] } = useAuthorList();
   const authorListA11yId = useId();
 
@@ -214,3 +214,5 @@ export const AuthorListPage: React.FC = () => {
     </>
   );
 };
+
+export default AuthorListPage;

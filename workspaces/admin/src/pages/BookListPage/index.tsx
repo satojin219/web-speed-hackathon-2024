@@ -250,3 +250,5 @@ export const BookListPage: React.FC = () => {
     </>
   );
 };
+
+export default BookListPage;

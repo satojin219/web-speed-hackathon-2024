@@ -5,7 +5,7 @@ import { useAuthUser } from '../../features/auth/hooks/useAuthUser';
 import { LoginContent } from './internal/LoginContent';
 import { LogoutContent } from './internal/LogoutContent';
 
-export const AuthPage: React.FC = () => {
+const AuthPage: React.FC = () => {
   const { data: user } = useAuthUser();
 
   return (
@@ -14,3 +14,5 @@ export const AuthPage: React.FC = () => {
     </Flex>
   );
 };
+
+export default AuthPage;

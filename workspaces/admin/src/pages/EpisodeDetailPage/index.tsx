@@ -5,7 +5,7 @@ import { EpisodeDetailEditor } from '../../features/episodes/components/EpisodeD
 import { useEpisode } from '../../features/episodes/hooks/useEpisode';
 import { episodeDetailRoute } from '../../routes';
 
-export const EpisodeDetailPage: React.FC = () => {
+const EpisodeDetailPage: React.FC = () => {
   const { bookId, episodeId } = episodeDetailRoute.useParams();
 
   const { data: book } = useBook({ bookId });
@@ -21,3 +21,5 @@ export const EpisodeDetailPage: React.FC = () => {
 
   return <EpisodeDetailEditor book={book} episode={episode} />;
 };
+
+export default EpisodeDetailPage;
