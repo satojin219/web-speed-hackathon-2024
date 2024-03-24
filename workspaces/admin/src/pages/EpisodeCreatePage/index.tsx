@@ -4,7 +4,7 @@ import { useBook } from '../../features/books/hooks/useBook';
 import { EpisodeDetailEditor } from '../../features/episodes/components/EpisodeDetailEditor';
 import { episodeCreateRoute } from '../../routes';
 
-const EpisodeCreatePage: React.FC = () => {
+export const EpisodeCreatePage: React.FC = () => {
   const { bookId } = episodeCreateRoute.useParams();
 
   const { data: book } = useBook({ bookId });
@@ -19,5 +19,3 @@ const EpisodeCreatePage: React.FC = () => {
 
   return <EpisodeDetailEditor book={book} />;
 };
-
-export default EpisodeCreatePage;

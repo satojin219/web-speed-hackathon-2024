@@ -1,15 +1,13 @@
 import { createRootRoute, createRoute, createRouter, redirect } from '@tanstack/react-router';
-import { lazy } from 'react';
 
 import { authApiClient } from './features/auth/apiClient/authApiClient';
 import { CommonLayout } from './foundation/layouts/CommonLayout';
 import { queryClient } from './lib/api/queryClient';
-
-const AuthPage = lazy(() => import('./pages/AuthPage/index'));
-const AuthorListPage = lazy(() => import('./pages/AuthorListPage/index'));
-const BookListPage = lazy(() => import('./pages/BookListPage/index'));
-const EpisodeCreatePage = lazy(() => import('./pages/EpisodeCreatePage/index'));
-const EpisodeDetailPage = lazy(() => import('./pages/EpisodeDetailPage/index'));
+import { AuthPage } from './pages/AuthPage';
+import { AuthorListPage } from './pages/AuthorListPage';
+import { BookListPage } from './pages/BookListPage';
+import { EpisodeCreatePage } from './pages/EpisodeCreatePage';
+import { EpisodeDetailPage } from './pages/EpisodeDetailPage';
 
 async function authGuard(): Promise<void> {
   const user = await queryClient.fetchQuery({
