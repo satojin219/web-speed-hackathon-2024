@@ -15,10 +15,10 @@ const main = async () => {
     const rootElement = document.getElementById('root');
 
     if (window.location.pathname.startsWith('/admin')) {
-      ReactDOM.createRoot(rootElement).render(<AdminApp />);
+      ReactDOM.createRoot(rootElement!).render(<AdminApp />);
     } else {
       ReactDOM.hydrateRoot(
-        rootElement,
+        rootElement!,
         <SWRConfig
           value={{
             revalidateIfStale: true,
