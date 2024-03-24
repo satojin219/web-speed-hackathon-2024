@@ -77,6 +77,7 @@ const RankingCard: React.FC<Props> = ({ bookId }) => {
                   <Image
                     alt={`${book.author.name}のアイコン`}
                     height={32}
+                    loading="lazy"
                     objectFit="cover"
                     src={authorImageUrl}
                     width={32}

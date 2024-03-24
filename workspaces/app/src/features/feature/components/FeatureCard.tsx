@@ -74,7 +74,14 @@ const FeatureCard: React.FC<Props> = ({ bookId }) => {
         <Flex align="center" gap={Space * 1} justify="flex-end">
           {authorImageUrl != null ? (
             <_AvatarWrapper>
-              <Image alt={book.author.name} height={32} objectFit="cover" src={authorImageUrl} width={32} />
+              <Image
+                alt={book.author.name}
+                height={32}
+                loading="lazy"
+                objectFit="cover"
+                src={authorImageUrl}
+                width={32}
+              />
             </_AvatarWrapper>
           ) : (
             <_AvatarWrapper></_AvatarWrapper>
