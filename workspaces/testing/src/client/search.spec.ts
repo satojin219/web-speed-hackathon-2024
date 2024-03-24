@@ -1,7 +1,5 @@
 import { expect, test } from '@playwright/test';
 
-import { waitForAllImagesToLoad } from '../utils';
-
 test.describe('検索', () => {
   test.beforeEach(async ({ page }) => {
     // Given
@@ -102,7 +100,9 @@ test.describe('検索', () => {
     const section = page.getByRole('region', { name: '検索結果' });
     const list = section.getByRole('list');
     const items = list.getByRole('listitem');
-    await waitForAllImagesToLoad(items.nth(0), 2);
+    const img = items.nth(0).getByRole('img', { name: /日常/ });
+    await expect(img).toBeVisible();
+    await expect(items.nth(0)).toContainText('日常');
     await expect(items.nth(0)).toHaveScreenshot('vrt-search-result.png');
   });
 
